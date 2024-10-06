@@ -88,9 +88,9 @@ class TomarketBot:
                 ]
                 await asyncio.gather(*tasks)
                 logger.info(
-                    f"Rest Period: Sleepng for {TimeCalculator.HOUR * 3} seconds"
+                    f"Rest Period: Sleepng for {TimeCalculator.HOUR *  0.25} seconds"
                 )
-                await asyncio.sleep(TimeCalculator.HOUR * 3)
+                await asyncio.sleep(TimeCalculator.HOUR * 0.25)
             except Exception as e:
                 logger.error(f"An unexpected error occurred: {e}")
                 logger.info(f"Sleepng for {TimeCalculator.HOUR * 1} seconds")
