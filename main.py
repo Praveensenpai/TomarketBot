@@ -68,10 +68,6 @@ class TomarketBot:
             if next_claim is None:
                 return
             logger.info(f"Next Daily Claim: {secs_to_dt(next_claim)}")
-        wait_time = next_claim - int(time.time()) + (TimeCalculator.MINUTE * 2)
-        if wait_time > 0:
-            logger.info(f"Waiting {wait_time} seconds for the next claim.")
-            await asyncio.sleep(wait_time)
 
     async def main(self):
         while True:
@@ -81,8 +77,9 @@ class TomarketBot:
                 if not is_logged_in:
                     return
 
+                await self.daily_claim_task(tomarket)
+
                 tasks = [
-                    self.daily_claim_task(tomarket),
                     self.farming_task(tomarket),
                     self.gaming_task(tomarket),
                 ]

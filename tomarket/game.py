@@ -39,7 +39,7 @@ class GameAction:
         )
         match response.status_code:
             case 200:
-                logger.info("Sucessfully claimed")
+                logger.success("Sucessfully claimed")
                 return True
             case _:
                 logger.error(f"Failed to claim game: {response.status_code}")
