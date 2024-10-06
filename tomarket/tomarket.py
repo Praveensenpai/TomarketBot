@@ -59,7 +59,6 @@ class Tomarket:
         if balance is None:
             return 0
         passes_left = balance.get("data", {}).get("play_passes", 0)
-        logger.info(f"Passes Left: {passes_left}")
         return passes_left
 
     async def claim_daily(self) -> Optional[int]:

@@ -54,8 +54,8 @@ class TomarketBot:
         await asyncio.sleep(15)
         async with self.semaphore:
             pass_left = await tomarket.play_passes_left()
-            logger.info(f"Pass left: {pass_left}")
-            for ps in range(1, pass_left):
+            logger.info(f"Passes left: {pass_left}")
+            for ps in range(1, pass_left + 1):
                 logger.info(f"[{ps}] Playing Game...")
                 await asyncio.sleep(random.randint(2, 6))
                 await tomarket.game.play_game()
